@@ -1,0 +1,27 @@
+@ApiHost=http://localhost:5006/api/TodoItems
+
+GET {{ApiHost}}
+###
+
+POST {{ApiHost}}
+
+Content-Type:application/json
+Accept:text/plain
+{
+  "id":"0",
+  "title":"string2",
+  "isComplete":false
+}
+###
+
+@Id=19
+
+GET {{ApiHost}}/{{Id}}
+###
+
+PATCH {{ApiHost}}/{{Id}}
+###
+
+DELETE {{ApiHost}}/{{Id}}
+###
+
