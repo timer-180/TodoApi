@@ -3,9 +3,11 @@ using TodoApi.Models;
 
 namespace TodoApi.Data
 {
-    public class TodoApiContext(DbContextOptions<TodoApiContext> options) : DbContext(options)
+    public class TodoApiContext : DbContext
     {
-        public DbSet<TodoItem> TodoItems { get; set; } = null!;
+        public TodoApiContext(DbContextOptions<TodoApiContext> options) : base(options) { }
+
+        public virtual DbSet<TodoItem> TodoItems { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

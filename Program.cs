@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TodoApiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TodoApiConnection")));
+builder.Services.AddScoped<ITodoItemsRepository, TodoItemsRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
