@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using TodoApi.Data;
 using TodoApi.Models;
 
@@ -78,7 +77,7 @@ namespace TodoApi.Controllers
 
         // PATCH: TodoItems/5
         [HttpPatch("{id}")]
-        public async Task<IActionResult> SwitchTodoItem(long id)
+        public async Task<ActionResult<TodoItem>> SwitchTodoItem(long id)
         {
             try
             {
@@ -89,7 +88,7 @@ namespace TodoApi.Controllers
                     return NotFound();
                 }
                 _logger.LogInformation("Switched TodoItem to {}, id={}", todoItem.IsComplete, id);
-                return NoContent();
+                return Ok(todoItem);
             }
             catch (Exception e)
             {
@@ -99,7 +98,7 @@ namespace TodoApi.Controllers
 
         // DELETE: TodoItems/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoItem(long id)
+        public async Task<ActionResult> DeleteTodoItem(long id)
         {
             try
             {

@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol.Core.Types;
-using TodoApi.Controllers;
 using TodoApi.Models;
 
 namespace TodoApi.Data
